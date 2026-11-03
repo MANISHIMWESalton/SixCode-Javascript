@@ -7,8 +7,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Welcome to my library</h1>
-<p>You will enjoy our beautiful books </p>
+<header class="topbar"> 
+    <h1>My Library</h1>
+    <button id="newBookBtn" class="btn btn-new">+ New Book</button>
+</header>
+<main class="container">
+<section class="intro">
+    <div>
+        <h2>My Books</h2>
+        <p>Manage your collection of books. Add new books, mark them as read or unread, and remove them from library.</p>
+    </div>
+    <input type="search" id="search" placeholder="Search by title or author" aria-label="Search books">
+</section>
+<section id="bookGrid" class="grid"></section>
+<p id="emptyMsg0" class="empty" hidden>No books found. Add one with “+ New Book”.</p>
+</main>
+<dialog id="bookDialog">
+    <form id="bookForm" method="dialog">
+        <h3>Add a new book</h3>
+        <label for="">Title
+            <input name="title" required>
+        </label>
+         <label>Author
+        <input name="author" required />
+      </label>
+      <label>Pages
+        <input name="pages" type="number" min="1" required />
+      </label>
+      <label>Cover image URL (optional)
+        <input name="cover" type="url" placeholder="https://..." />
+      </label>
+      <label>Book file URL (optional, used by Read / Download)
+        <input name="file" type="url" placeholder="https://.../book.pdf" />
+      </label>
+      <label>Description (optional)
+        <textarea name="description" rows="2"></textarea>
+      </label>
+      <label class="checkbox">
+        <input name="read" type="checkbox" /> I have read this book
+      </label>
+            <div class="dialog-actions">
+      <button type="button" id="cancelBtn" class="btn btn-ghost">Cancel</button>
+      <button type="submit" class="btn btn-read">Add Book</button>
+    </div>
+    </form>
+</dialog>
 <script src="script.js"></script>
 </body>
 </html>

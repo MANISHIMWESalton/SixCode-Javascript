@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #efefef;
+  color: #1f2937;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2f3241;
+  color: #fff;
+  padding:  35px;
+  height: 52px;
+  border-bottom: 3px solid #d1d5db;
+}
+
+.topbar h1 {
+  font-size: 1.6rem;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 32px 32px;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.intro h2 {
+  font-size: 1.05rem;
+}
+
+.intro p {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+#search {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#search:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.empty {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 40px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-top {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  flex: 1;
+}
+
+.cover {
+  width: 84px;
+  height: 112px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+
+.cover.placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.cover.placeholder strong {
+  font-size: 0.85rem;
+  line-height: 1.1;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  padding-right: 18px;
+}
+
+.info h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.author,
+.pages {
+  color: #6b7280;
+  font-size: 0.72rem;
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-size: 0.68rem;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+.download {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+}
+
+/* Read / Not read badge (click to toggle) */
+.badge {
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #dcfce7;
+  color: #037a31;
+}
+
+.badge.unread {
+  background: #e5f6ec;
+  color: #374151;
+}
+
+/* ---------- Buttons ---------- */
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:focus-visible,
+.badge:focus-visible,
+.download:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.btn-new {
+  background: #0000ff;
+}
+
+.btn-read {
+  background: #2b7be4;
+}
+
+.btn-read.faded {
+  background: #93bdf3;
+}
+
+.btn-remove {
+  background: #cc0818;
+}
+
+.btn-ghost {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+/* ---------- Dialog ---------- */
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  width: min(420px, 92vw);
+  margin: auto;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+dialog h3 {
+  margin-bottom: 14px;
+}
+
+dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+dialog input,
+dialog textarea {
+  padding: 7px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font: inherit;
+}
+
+dialog .checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 600px) {
+  .topbar,
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .topbar h1 {
+    font-size: 1.25rem;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #search {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
